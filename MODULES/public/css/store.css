@@ -1,0 +1,130 @@
+
+.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #1c1c1c; 
+        z-index: 1000; 
+    }
+
+    .navbar-logo img {
+        height: 35px;
+    }
+
+    .navbar-menu {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-menu li {
+        margin: 0 15px;
+        position: relative;
+    }
+
+    .navbar-menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+        color: #fa4454;
+    }
+
+    .navbar-menu li::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: #fa4454;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-menu li:hover::after {
+        width: 100%;
+    }
+
+    .navbar-menu li:hover {
+        background-color: rgb(40, 40, 40);
+        border-radius: 5px;
+    }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Teko', sans-serif;
+  color: white;
+}
+
+.store-container {
+  padding: 100px 50px 50px 50px; /* space for navbar */
+}
+
+.games-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.game-box {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  width: 220px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.game-box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.game-details {
+  padding: 15px;
+}
+
+.game-title {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.game-genre, .game-rating {
+  font-size: 16px;
+  color: #ccc;
+  margin: 2px 0;
+}
+
+.buy-btn {
+  display: inline-block;
+  background-color: #fa4454;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: 'Teko', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,473 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Realm Tournament</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/demo tournament.css">
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="demo%20home%201.html">Lobby</a></li>
+            <li><a href="demo%20tournament.html">Tournaments</a></li>
+            <li><a href="review1%20(1).html">Review</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="demo.html">My Profile</a></li>
+            <li><a href="Contact Us.html">Contact US</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="tournament-header">
+        <div class="container">
+            <h1>Arcade Realm Championship 2024</h1>
+            <p>Join the ultimate gaming battle and claim your glory. Register now and compete with the best.</p>
+        </div>
+    </header>
+
+    <section class="tournament-banner">
+        <div class="container">
+            <div class="banner-content">
+                <img src="tournament3.jpg" alt="Tournament Banner" class="banner-image">
+                <button id="view-more-news" class="signin-btn">Register now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Button -->
+
+
+<!-- Modal Structure -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Register for Tournament</h2>
+        <form class="registerform" id="registerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="team-name">Team Name:</label>
+            <input type="text" id="team-name" name="team-name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="team-members" color="black">Team Member Names:</label>
+            <input type="text" id="member1" name="member1" placeholder="Member 1" required>
+            <input type="text" id="member2" name="member2" placeholder="Member 2" required>
+            <input type="text" id="member3" name="member3" placeholder="Member 3" required>
+            <input type="text" id="member4" name="member4" placeholder="Member 4" required>
+            <input type="text" id="member5" name="member5" placeholder="Member 5" required>
+            
+            <label for="gov-id" color="black">Government ID Proof:</label>
+            <select id="gov-id" name="gov-id" required>
+                <option value="aadhar">Aadhar Card</option>
+                <option value="pan">PAN Card</option>
+                <option value="pan">Driving Liscence</option>
+            </select>
+            
+            <label for="id-number">ID Number:</label>
+            <input type="text" id="id-number" name="id-number" required>
+            
+            <label for="tournament">Select Tournament:</label>
+            <select id="tournament" name="tournament" required>
+                <option value="tournament1">BGMI CHAMPION SERIES - ₹179/head</option>
+                <option value="tournament2">FC24 SHOWDOWN - ₹170/head</option>
+                <option value="tournament3">VALORANT CLASH OF CHAMPIONS - ₹200/head</option>
+            </select>
+            
+            <p>Total Amount: ₹<span id="amount">0</span></p>
+            
+            <button type="submit" class="signin-btn">Proceed to Payment</button>
+        </form>
+    </div>
+</div>
+
+
+    <!-- Tournament Details Section -->
+    <section class="tournament-details">
+        <div class="container">
+            <div class="details-grid">
+                <!-- Description -->
+                <div class="details-description">
+                    <h3>About the Tournament</h3>
+                    <p>The Arcade Realm Clash of Champions brings together the top gamers from around the world to compete in an epic Valorant showdown across India. Test your skills, strategize with your team, and battle your way to the top for a chance to win amazing prizes and global recognition.</p>
+                    <h3>Rules & Guidelines</h3>
+                    <ul>
+                        <li>All participants must be 16 years or older.</li>
+                        <li>Fair play is mandatory; any form of cheating will result in disqualification.</li>
+                        <li>Teams should consist of 5 members.</li>
+                        <li>Respect and sportsmanship are expected at all times.</li>
+                        <li>There will be in-game qualifiers first.</li>
+                        <li>Top 64 teams will play LAN event which is going to held in CHANDIGARH.</li>
+                    </ul>
+                </div>
+                <!-- Info Panel -->
+                <div class="details-info">
+                    <div class="info-card">
+                        <h4>Event Date</h4>
+                        <p>December 1 - December 22, 2024</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Prize Pool</h4>
+                        <p>11,00,000</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Location</h4>
+                        <p>Chandigarh, Punjab</p>
+                    </div>
+                    <div class="info-card countdown">
+                        <h4>Countdown</h4>
+                        <p id="countdown-timer">Loading...</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tournament-banner">
+        <div class="container">
+            <div class="banner-content">
+                <img src="tournament1.jpg" alt="Tournament Banner" class="banner-image">
+                <button id="view-more-news" class="signin-btn" data-target="#registerModal">Register now</button>
+            </div>
+        </div>
+    </section>
+    <section class="tournament-banner">
+        <div class="container">
+            <div class="banner-content">
+                <img src="tournament2.png" alt="Tournament Banner" class="banner-image">
+                <button id="view-more-news" class="signin-btn"  data-target="#registerModal">Register now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="tournament-leaderboard">
+        <div class="container">
+            <h2>BGIS TOURNAMENT LEADERBOARD</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Matches</th>
+                        <th>Position Points</th>
+                        <th>Finish Points</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>TeamXSpark</td>
+                        <td>18</td>
+                        <td>42</td>
+                        <td>100</td>
+                        <td>142</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Global Esports</td>
+                        <td>18</td>
+                        <td>41</td>
+                        <td>93</td>
+                        <td>134</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Reckoning Esports</td>
+                        <td>18</td>
+                        <td>61</td>
+                        <td>71</td>
+                        <td>132</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Team SouL</td>
+                        <td>18</td>
+                        <td>34</td>
+                        <td>82</td>
+                        <td>116</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Venom Gaming</td>
+                        <td>18</td>
+                        <td>40</td>
+                        <td>76</td>
+                        <td>116</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Team Limra</td>
+                        <td>18</td>
+                        <td>37</td>
+                        <td>78</td>
+                        <td>115</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>8-Bit</td>
+                        <td>18</td>
+                        <td>42</td>
+                        <td>65</td>
+                        <td>107</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Team Tamilas</td>
+                        <td>18</td>
+                        <td>53</td>
+                        <td>53</td>
+                        <td>106</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Raven Esports</td>
+                        <td>18</td>
+                        <td>37</td>
+                        <td>63</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>FS Esports</td>
+                        <td>18</td>
+                        <td>42</td>
+                        <td>57</td>
+                        <td>99</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Team Insane</td>
+                        <td>18</td>
+                        <td>38</td>
+                        <td>58</td>
+                        <td>96</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Team Aaru</td>
+                        <td>18</td>
+                        <td>31</td>
+                        <td>62</td>
+                        <td>93</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Vasista Esports</td>
+                        <td>18</td>
+                        <td>45</td>
+                        <td>44</td>
+                        <td>89</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>MOGO! Esports</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>60</td>
+                        <td>79</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Carnival Gaming</td>
+                        <td>18</td>
+                        <td>21</td>
+                        <td>44</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Inferno Esports</td>
+                        <td>18</td>
+                        <td>2</td>
+                        <td>23</td>
+                        <td>25</td>
+                    </tr>
+                    <!-- Repeat for other teams -->
+                    <!-- ... -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section class="tournament-livestream">
+        <div class="container">
+            <h2>LIVE STREAM</h2>
+            <div class="livestream-video">
+                <iframe width="1000px" height="450px" src="https://www.youtube.com/embed/vaFUmeNxl7A?si=MHjNPiJhiry_--4S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    
+    
+
+
+
+    <script>
+        // Set the date and time to count down to
+var countDownDate = new Date("Nov 30, 2024 23:59:59").getTime();
+
+// Update the countdown every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the countdown date
+  var distance = countDownDate - now;
+
+  // Calculate the days, hours, minutes, and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="countdown-timer"
+  document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the countdown is over, display some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown-timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+// Get the modal
+var modal = document.getElementById("registerModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("view-more-news");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Open the modal when the button is clicked
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Close the modal when the <span> is clicked
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close the modal when the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Update the amount according to the selected tournament
+document.getElementById("tournament").addEventListener("change", function() {
+        var selectedTournament = this.value;
+        var amount;
+        if (selectedTournament === "tournament1") {
+            amount = "₹895";
+        } else if (selectedTournament === "tournament2") {
+            amount = "₹850";
+        } else if (selectedTournament === "tournament3") {
+            amount = "₹1000";
+        }
+        document.getElementById("amount").innerText = amount;
+        
+        // Store the amount in sessionStorage
+        sessionStorage.setItem("tournamentAmount", amount);
+    });
+
+document.querySelectorAll('.signin-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const modal = document.querySelector(this.getAttribute('data-target'));
+        modal.style.display = 'block';
+    });
+});
+
+// Close modal when 'x' is clicked
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('registerModal').style.display = 'none';
+});
+
+// Close modal when clicking outside of the modal content
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('registerModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        // Optionally, you can process the form data here
+
+        // Redirect to the payment page
+        window.location.href = "checkout.html"; // Change this to your actual payment page URL
+    });
+
+
+
+    </script>
+
+    
+<hr>
+
+</body>
+<footer>
+    <footer>
+        <div class="footerf">
+
+            <div class="ef">
+                <img class="logof" src="logo.png" alt="Arcade Realm Logo">
+                <div class="aboutf">
+                    <h2>About Us</h2>
+                    <p>Our Mission</p>
+                    <p>Team</p>
+                </div>
+                <div class="aboutf">
+                    <h2>Community</h2>
+                    <a href="https://discord.com/"><p>Discord</p></a>
+                    <p> &copy; 2024 Rights Reserved</p>
+                </div>
+                <div class="aboutf">
+                    <h2>Resources</h2>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                </div>
+                <div class="aboutf">
+                    <h2>Social</h2>
+                    <a href="https://www.instagram.com/"><img class="img" src="https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338393_1280.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/"><img class="img" src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png" alt="Facebook"></a>
+                    <a href="https://x.com/"><img class="img" src="https://img.freepik.com/premium-photo/twitter-logo-icon-illustration-vector_895118-5895.jpg" alt="Twitter"></a>
+                    <a href="https://www.youtube.com/"><img class="img" src="https://yt3.googleusercontent.com/ccPr80rfkOgsE0TMP8S8vEfP85gl12XzUGtySPFFYNMhxlQ62W7ijksmUIXv6fCBC1jBmoEqaA=s900-c-k-c0x00ffffff-no-rj" alt="YouTube"></a>
+                </div>
+    
+                
+                
+            </div>
+            <div class="aboutf">
+                    
+                <div class="location-container">
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.1017530079553!2d76.78542351031965!3d30.743643185000753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed732efa1199%3A0x90137b7017d807e4!2s17A%2C%20Sector%2017%2C%20Chandigarh%2C%20160017!5e0!3m2!1sen!2sin!4v1725380092115!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+</footer>
+</html>
+

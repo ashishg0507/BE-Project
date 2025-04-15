@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="demo%20home%201.html">Lobby</a></li>
+            <li><a href="demo%20tournament.html">Tournaments</a></li>
+            <li><a href="review1%20(1).html">Review</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="demo.html">My Profile</a></li>
+            <li><a href="Contact Us.html">Contact US</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-pic">
+                <img src="https://cdn-icons-png.freepik.com/256/7166/7166135.png?ga=GA1.1.180123230.1719982522&semt=ais_hybrid" alt="Profile Icon">
+                <input type="file" id="profile-pic-input" accept="image/*">
+            </div>
+            <a href="#" id="account-link">Account</a>
+            <a href="#" id="tournaments-link">My Tournaments</a>
+            <a href="#" id="password-link">Password</a>
+        </div>
+        <div class="main-content">
+            <div id="account-section" class="content-section active">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="fav-game">Favorite Game</label>
+                    <input type="text" id="fav-game" placeholder="Enter your favorite game">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" placeholder="Write a short bio about yourself"></textarea>
+                </div>
+                <button class="save-btn" id="save-btn">Save</button>
+            </div>
+
+            <div id="tournaments-section" class="content-section">
+                <h2>Your Tournaments</h2>
+                <p>You haven't participated in tournaments yet.</p>
+            </div>
+
+            <div id="password-section" class="content-section">
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" placeholder="Enter your current password">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" placeholder="Enter your new password">
+                </div>
+                <div class="form-group">
+                    <label for="re-enter-new-password">Re-Enter New Password</label>
+                    <input type="password" id="re-enter-new-password" placeholder="Re-enter your new password">
+                </div>
+                <button class="change-btn" id="change-password-btn">Change Password</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accountLink = document.getElementById('account-link');
+        const tournamentsLink = document.getElementById('tournaments-link');
+        const passwordLink = document.getElementById('password-link');
+        const saveBtn = document.getElementById('save-btn');
+        const changePasswordBtn = document.getElementById('change-password-btn');
+        const profilePicInput = document.getElementById('profile-pic-input');
+        const profilePic = document.querySelector('.profile-pic img');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        const accountSection = document.getElementById('account-section');
+        const tournamentsSection = document.getElementById('tournaments-section');
+        const passwordSection = document.getElementById('password-section');
+
+        // Load data from local storage
+        window.addEventListener('load', () => {
+            const data = JSON.parse(localStorage.getItem('profileData')) || {};
+            document.getElementById('first-name').value = data.firstName || '';
+            document.getElementById('last-name').value = data.lastName || '';
+            document.getElementById('email').value = data.email || '';
+            document.getElementById('phone').value = data.phone || '';
+            document.getElementById('fav-game').value = data.favGame || '';
+            document.getElementById('bio').value = data.bio || '';
+        });
+
+        function showSection(sectionToShow) {
+            accountSection.classList.remove('active');
+            tournamentsSection.classList.remove('active');
+            passwordSection.classList.remove('active');
+
+            sectionToShow.classList.add('active');
+        }
+
+        accountLink.addEventListener('click', () => {
+            showSection(accountSection);
+            sidebar.classList.add('zoomed');
+            mainContent.classList.add('zoomed');
+        });
+
+        tournamentsLink.addEventListener('click', () => {
+            showSection(tournamentsSection);
+            sidebar.classList.add('zoomed');
+            mainContent.classList.add('zoomed');
+        });
+
+        passwordLink.addEventListener('click', () => {
+            showSection(passwordSection);
+            sidebar.classList.add('zoomed');
+            mainContent.classList.add('zoomed');
+        });
+
+        saveBtn.addEventListener('click', () => {
+            const profileData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                favGame: document.getElementById('fav-game').value,
+                bio: document.getElementById('bio').value,
+            };
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+            alert('Profile saved!');
+        });
+
+        changePasswordBtn.addEventListener('click', () => {
+            alert('Password changed!');
+        });
+
+        profilePicInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profilePic.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Remove zoom effect after transition
+        function removeZoomEffect() {
+            sidebar.classList.remove('zoomed');
+            mainContent.classList.remove('zoomed');
+        }
+
+        sidebar.addEventListener('transitionend', removeZoomEffect);
+        mainContent.addEventListener('transitionend', removeZoomEffect);
+    </script>
+</body>
+</html>

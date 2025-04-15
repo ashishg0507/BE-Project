@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Reviewed Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Teko', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #000;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 40px;
+        }
+
+        .review-container {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .review-details {
+            flex: 1;
+        }
+
+        .review-details h2 {
+            font-size: 2em;
+            margin: 0 0 10px 0;
+        }
+
+        .review-details p {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+
+        .review-dropdown {
+            margin-top: 15px;
+        }
+
+        .review-dropdown select {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="heading">Top Reviewed Games</h1>
+
+    <!-- Review 1 -->
+    <div class="review-container">
+        <img src="game1.jpg" alt="Game 1">
+        <div class="review-details">
+            <h2>Game Title 1</h2>
+            <p>Genre: Action</p>
+            <p>Rating: 9/10</p>
+            <p>Top Review: "An exhilarating experience from start to finish!"</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="review-container">
+        <img src="game2.jpg" alt="Game 2">
+        <div class="review-details">
+            <h2>Game Title 2</h2>
+            <p>Genre: RPG</p>
+            <p>Rating: 8.5/10</p>
+            <p>Top Review: "A deep and engaging world, full of adventures."</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="review-container">
+        <img src="game3.jpg" alt="Game 3">
+        <div class="review-details">
+            <h2>Game Title 3</h2>
+            <p>Genre: Puzzle</p>
+            <p>Rating: 7.5/10</p>
+            <p>Top Review: "Challenging puzzles that keep you coming back."</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="review-container">
+        <img src="game4.jpg" alt="Game 4">
+        <div class="review-details">
+            <h2>Game Title 4</h2>
+            <p>Genre: Strategy</p>
+            <p>Rating: 9.5/10</p>
+            <p>Top Review: "Masterful strategy gameplay with endless depth."</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 5 -->
+    <div class="review-container">
+        <img src="game5.jpg" alt="Game 5">
+        <div class="review-details">
+            <h2>Game Title 5</h2>
+            <p>Genre: Adventure</p>
+            <p>Rating: 8/10</p>
+            <p>Top Review: "An unforgettable journey with stunning visuals."</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 6 -->
+    <div class="review-container">
+        <img src="game6.jpg" alt="Game 6">
+        <div class="review-details">
+            <h2>Game Title 6</h2>
+            <p>Genre: Horror</p>
+            <p>Rating: 9/10</p>
+            <p>Top Review: "Terrifying and immersive horror experience."</p>
+            <div class="review-dropdown">
+                <select>
+                    <option>Reviewer 1: Detailed review...</option>
+                    <option>Reviewer 2: Another detailed review...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+
+        body {
+            background-image: url(https://www.hdwallpapers.in/download/red_lines_black_hexagon_abstraction_hd_abstract-HD.jpg);
+            font-family: 'Teko', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .left-panel {
+            background-color: #fa4454;
+            padding: 50px;
+            width: 50%;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .left-panel h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .left-panel p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .right-panel {
+            padding: 50px;
+            width: 50%;
+            background-color: #2c2f38;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-panel h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            background-color: #383b44;
+            color: #fff;
+            border: none;
+            margin-bottom: 15px;
+            height: 45px;
+        }
+
+        .form-control:focus {
+            background-color: #4a4d57;
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .form-check-input:checked {
+            background-color: #fa4454;
+            border-color: #fa4454;
+        }
+
+        .btn-primary {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            height: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #43a047;
+            border-color: #43a047;
+        }
+
+        .social-login img {
+            margin: 0 10px;
+            height: 40px;
+        }
+
+        /* Universal placeholder styling */
+        .form-control::placeholder {
+            color: #888;
+            opacity: 1;
+        }
+
+        /* Optional: Different placeholder color for specific input types */
+        input[type="text"]::placeholder {
+            color: #888;
+        }
+
+        input[type="email"]::placeholder {
+            color: #888;
+        }
+
+        input[type="password"]::placeholder {
+            color: #888;
+        }
+
+        .signin-btn {
+            width: calc(100% - 10px); 
+            padding: 15px;
+            background-color: #fa4454;
+            color: white;
+            font-size: 22px;
+            font-family: 'Teko', sans-serif;
+            border: 2px solid black;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 10px;
+            position: relative;
+            left: 5px;
+            top: 5px;
+            box-sizing: border-box;
+        }
+
+        .signin-btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+ 

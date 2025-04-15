@@ -1,0 +1,620 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Teko', sans-serif;
+}
+body{
+    background-image: url(https://cdn.pixabay.com/photo/2021/09/07/07/11/game-console-6603120_1280.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.video-container {
+    position: relative;
+    height: 700PX; /* Adjust the height to your needs */
+    width: 100%;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    filter: brightness(50%);
+}
+
+.overlay {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    font-size: 1.5em;
+    margin: 0;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1c1c1c; 
+    z-index: 1000; 
+}
+
+.navbar-logo img {
+    height: 35px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #fa4454;
+}
+
+.navbar-menu li::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fa4454;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-menu li:hover::after {
+    width: 100%;
+}
+
+.navbar-menu li:hover {
+    background-color: rgb(40, 40, 40);
+    border-radius: 5px;
+}
+
+.news {
+    padding: 20px 20px; 
+    text-align: center;
+}
+
+.news h2 {
+    color: #ffffff; 
+    font-size: 2.5em; 
+    margin-bottom: 10px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+
+.news-item {
+    flex: 1;
+    margin: 0 10px;
+    max-width: 30%; 
+    text-align: center; 
+    transition: transform 0.3s ease; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    transition: transform 0.3s ease; 
+}
+
+.news-item:hover img {
+    transform: scale(1.1); 
+}
+
+.news-item h3 {
+    color: #ffffff; 
+    font-size: 1.8em; 
+    margin-top: 5px;
+}
+
+.news-item p {
+    font-size: 1.3em; 
+    color: #ffffff;
+
+}
+
+
+.signin-btn {
+    width: 220px; 
+    padding: 15px;
+    background-color: #fa4454;
+    color: white;
+    font-size: 22px;
+    font-family: 'Teko', sans-serif; 
+    border: 2px solid black; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px; 
+    position: relative;
+    left: 5px;
+    top: 5px;
+    box-sizing: border-box;
+}
+
+
+.signin-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.about{
+    color: #fa4454;
+    font-size: 25px;
+}
+
+.carousel {
+position: relative;
+max-width: 1300px;
+margin: auto;
+overflow: hidden;
+border-radius: 8px;
+}
+
+.carousel-inner {
+display: flex;
+transition: transform 0.5s ease;
+}
+
+.carousel-item {
+min-width: 100%;
+height: 400px;
+object-fit: cover;
+}
+
+.carousel-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0, 0, 0, 0.5);
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+font-size: 24px;
+}
+
+.prev-btn {
+left: 10px;
+}
+
+.next-btn {
+right: 10px;
+}
+
+.carousel-btn:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+.tournaments {
+    padding: 40px 20px;
+    text-align: center;
+     
+}
+
+.tournaments h2 {
+    color: #ffffff; 
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.tournament-banner {
+    position: relative;
+    
+}
+
+.tournament-banner img {
+    width: 1300px;
+    height: 400px;
+    border-radius: 8px; 
+    transition: transform 0.3s ease;
+}
+.tournament-banner:hover img {
+    transform: scale(1.1); 
+}
+
+.tournament-banner .signin-btn {
+    width: auto; 
+}
+
+.content {
+max-width: 800px;
+margin: 0 auto;
+background-color: #d1d1d1;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+text-align: left; /* Ensures the text is aligned to the left */
+}
+
+.content h2 {
+font-size: 2em;
+margin-bottom: 10px;
+color: #fa4454;
+text-align: left; /* Left align the headings */
+}
+
+.content p {
+font-size: 1.2em;
+margin-bottom: 20px;
+text-align: left; /* Left align the paragraphs */
+}
+
+.content ul {
+list-style-type: none;
+padding: 0;
+text-align: left; /* Ensure the list is aligned to the left */
+}
+
+.content ul li {
+margin-bottom: 15px;
+padding-left: 20px;
+position: relative;
+}
+
+.content ul li::before {
+content: "•";
+color: #fa4454;
+position: absolute;
+left: 0;
+font-size: 1.5em;
+line-height: 1.5em;
+}
+
+.tournament-content {
+max-width: 800px;
+margin: 0 auto;
+background-color: #d1d1d1;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+text-align: left; /* Ensures the text is aligned to the left */
+}
+
+.tournament-content h2 {
+font-size: 2em;
+margin-bottom: 10px;
+color: #fa4454;
+text-align: left; /* Left align the headings */
+}
+
+.tournament-content p {
+font-size: 1.2em;
+margin-bottom: 20px;
+text-align: left; /* Left align the paragraphs */
+}
+
+.tournament-content ul {
+list-style-type: none;
+padding: 0;
+text-align: left; /* Ensure the list is aligned to the left */
+}
+
+.tournament-content ul li {
+margin-bottom: 15px;
+padding-left: 20px;
+position: relative;
+}
+
+.tournament-content ul li::before {
+content: "•";
+color: #fa4454;
+position: absolute;
+left: 0;
+font-size: 1.5em;
+line-height: 1.5em;
+}
+
+.footerf {
+    background-color: #1c1c1c; 
+}
+.ef {
+    display: flex;
+    font-size: 20px;
+    font-family: 'Teko', sans-serif;
+    color: white;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.aboutf h2 {
+    font-size: 30pxpx;
+    margin-bottom: 10px;
+}
+.aboutf p {
+    margin: 5px 0;
+}
+.img {
+    height: 30px;
+    width: 30px;
+    padding-left: 5px;
+    border-radius: 50%;
+}
+.logof {
+    height: 35px;
+    padding: 0px 5px;
+}
+.giveaway-content {
+max-width: 800px;
+margin: 0 auto;
+background-color: #d1d1d1;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+text-align: left; /* Ensures the text is aligned to the left */
+}
+
+.giveaway-content h2 {
+font-size: 2em;
+margin-bottom: 10px;
+color: #fa4454;
+text-align: left; /* Left align the headings */
+}
+
+.giveaway-content p {
+font-size: 1.2em;
+margin-bottom: 20px;
+text-align: left; /* Left align the paragraphs */
+}
+
+.giveaway-content ul {
+list-style-type: none;
+padding: 0;
+text-align: left; /* Ensure the list is aligned to the left */
+}
+
+.giveaway-content ul li {
+margin-bottom: 15px;
+padding-left: 20px;
+position: relative;
+}
+
+.giveaway-content ul li::before {
+content: "•";
+color: #fa4454;
+position: absolute;
+left: 0;
+font-size: 1.5em;
+line-height: 1.5em;
+}
+
+.gallery-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+border-radius: 10px;
+}
+
+.gallery-row {
+display: flex;
+
+justify-content: space-around;
+width: 100%;
+margin-bottom: 20px;
+}
+
+.gallery-item {
+text-align: center;
+width: 30%;
+}
+
+.gallery-item img {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+width: 400px;
+height: 280px;
+
+
+padding: 15px;
+
+}
+
+.gallery-item p {
+margin-top: 10px;
+color: #ffffff;
+font-size: 1.2em;
+}
+.giveaway-modal-btn {
+    width: 220px; 
+    padding: 15px;
+    background-color: #fa4454;
+    color: white;
+    font-size: 22px;
+    font-family: 'Teko', sans-serif; 
+    border: 2px solid black; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px; 
+    position: relative;
+    left: 5px;
+    top: 5px;
+    
+}
+
+
+.giveaway-modal-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.giveaway-modal {
+display: none; 
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.5);
+padding-top: 60px;
+}
+
+/* Modal Content */
+.giveaway-modal-content {
+background-color: #1e1e1e;
+margin: 5% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 500px;
+border-radius: 10px;
+color: white;
+}
+
+/* Close Button */
+.giveaway-modal-close {
+color: #fa4454;
+float: right;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.giveaway-modal-close:hover,
+.giveaway-modal-close:focus {
+color: #fff;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* Form Elements */
+.giveaway-modal-content label {
+display: block;
+margin: 15px 0 5px;
+}
+
+.giveaway-modal-content input[type="text"],
+.giveaway-modal-content input[type="email"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+.giveaway-submit-btn {
+background-color: #fa4454;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-family: Teko, sans-serif;
+font-size: 1.2em;
+}
+
+.giveaway-submit-btn:hover {
+background-color: white;
+color: #fa4454;
+border: 1px solid #fa4454;
+}
+
+/* Button to open the modal */
+.giveaway-modal-btn {
+background-color: #fa4454;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-family: Teko, sans-serif;
+font-size: 1.2em;
+}
+
+.giveaway-modal-btn:hover {
+background-color: white;
+color: #fa4454;
+
+}
+
+.location-container {
+display: flex;
+align-items: center;
+margin-top: 10px;
+padding-left: 20px;
+padding-bottom: 20px;
+}
+
+.map-container {
+margin-right: 20px;
+}
+
+.address-container {
+font-size: 18px;
+line-height: 1.5;
+}
+
+.location-container {
+display: flex;
+align-items: center;
+margin-top: 10px;
+padding-left: 20px;
+padding-bottom: 20px;
+}
+
+.map-container {
+margin-right: 20px;
+}
+
+.address-container {
+font-size: 18px;
+line-height: 1.5;
+}
+
+
+
+
+

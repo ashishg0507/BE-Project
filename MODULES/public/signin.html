@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>PREMIUM GIVEAWAY</h2>
+            <p>Start with Arcade Realm and participate<br> in giveaways, exciting tournaments<br> and win big rewards.</p>
+            <img src="undefined - Imgur.png" alt="Character" style="width:280px; height: 350px;">
+        </div>
+    
+        <div class="right-panel">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                  <label class="form-check-label" for="termsCheck">
+                    I agree to all <a href="#" style="color:#fa4454;">Terms & Conditions</a> and I am over 16 years of age
+                  </label>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
+            <p class="text-center my-3">OR</p>
+            <div class="social-login text-center">
+                <a href="https://accounts.google.co.in/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google">
+                </a>
+            </div>
+            <p class="text-center mt-3">Don't have an account? <a href="signup.html" style="color:#fa4454;">Create an account</a></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(e.target); // Get form data
+            const data = new URLSearchParams(formData); // Convert form data to URLSearchParams
+
+            try {
+                const response = await fetch("/signin", {
+                    method: "POST",
+                    body: data,
+                });
+
+                const result = await response.json(); // Parse the JSON response
+
+                if (result.success) {
+                    // If sign-in is successful, redirect to the home page
+                    window.location.href = "/home";
+                } else {
+                    // If sign-in fails, alert the user with the error message
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error during sign-in:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+    </script>
+</body>
+
+
+</html>
