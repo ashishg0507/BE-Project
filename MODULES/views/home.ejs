@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="/css/demo home 1.css">
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="/bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>Welcome to Arcade Realm</h1>
+            <p>Dive Into the Realm. Explore our curated content on the hottest games, emerging trends, and the gaming community worldwide.Be a part of our community, share your thoughts, and connect with gamers like you.</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="/logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/home">Lobby</a></li>
+            <li><a href="/tournament">Tournaments</a></li>
+            <li><a href="/review">Review</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/demo">My Profile</a></li>
+            <li><a href="/contact">Contact US</a></li>
+        </ul>
+    </nav>
+
+    <section class="tournaments">
+        <h2>TOURNAMENTS</h2>
+        <div class="tournament-content">
+            <h2>About Arcade Realm's Tournaments</h2>
+            <p>At Arcade Realm, we believe that the thrill of competition is at the heart of gaming. Our Tournaments section is dedicated to bringing together players from all over the world to compete, showcase their skills, and be crowned champions in their favorite games.</p>
+        
+            <h2>What We Offer</h2>
+            <p>Our tournaments are designed to cater to all types of gamers, from casual players to hardcore competitors:</p>
+            <ul>
+                <li><strong>Wide Range of Games:</strong> Whether you're into first-person shooters, strategy games, MOBAs, or sports titles, we host tournaments across a diverse selection of games.</li>
+                <li><strong>Regular Events:</strong> We organize tournaments on a regular basis, giving you plenty of opportunities to participate, improve, and climb the ranks.</li>
+                <li><strong>Exciting Prizes:</strong> Our tournaments offer more than just bragging rights—compete for cash prizes, exclusive in-game items, and the recognition of being the best.</li>
+                <li><strong>Global Community:</strong> Join a vibrant community of gamers from around the world, make new friends, and face off against opponents from different regions.</li>
+                <li><strong>Fair Play:</strong> We pride ourselves on maintaining a fair and competitive environment. Our tournaments are governed by clear rules and are monitored to ensure all players have a level playing field.</li>
+            </ul>
+        </div>
+        <br><br>
+        
+        <div class="carousel">
+            <div class="carousel-inner">
+                <img src="/tournament1.jpg" alt="Tournament Image 1" class="carousel-item">
+                <img src="/tournament2.png" alt="Tournament Image 2" class="carousel-item">
+            </div>
+            <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <button id="tournamentsss" class="signin-btn">Participate Now</button>
+    </section>
+ 
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-item');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            const offset = -currentSlide * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        document.getElementById('tournamentsss').addEventListener('click', function() {
+            window.location.href = '/tournament'; // Redirect to tournament page using the correct route
+        });
+
+        // Get the modal
+        var giveawayModal = document.getElementById("giveawayModal");
+
+        // Get the button that opens the modal
+        var openGiveawayModal = document.getElementById("openGiveawayModal");
+
+        // Get the <span> element that closes the modal
+        var giveawayClose = document.getElementsByClassName("giveaway-modal-close")[0];
+
+        // When the user clicks the button, open the modal 
+        if (openGiveawayModal) {
+            openGiveawayModal.onclick = function() {
+                giveawayModal.style.display = "block";
+            }
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        if (giveawayClose) {
+            giveawayClose.onclick = function() {
+                giveawayModal.style.display = "none";
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == giveawayModal) {
+                giveawayModal.style.display = "none";
+            }
+        }
+
+        // Optional: Handle form submission
+        const giveawayForm = document.getElementById("giveawayForm");
+        if (giveawayForm) {
+            giveawayForm.onsubmit = function(event) {
+                event.preventDefault();
+                // Add your form submission logic here
+                alert("Thank you for participating!");
+                giveawayModal.style.display = "none";
+            };
+        }
+    </script>
+</body>
+<footer>
+    <div class="footerf">
+        <div class="ef">
+            <img class="logof" src="/logo.png" alt="Arcade Realm Logo">
+            <div class="aboutf">
+                <h2>About Us</h2>
+                <a href="/terms" style="text-decoration: none; color: inherit;">
+                    <p>Arcade Realm</p>
+                </a>
+                <a href="/contact" style="text-decoration: none; color: inherit;">
+                    <p>Contact US</p>
+                </a>
+            </div>
+            <div class="aboutf">
+                <h2>Community</h2>
+                <a href="https://discord.com/" style="text-decoration: none; color: inherit;">
+                    <p>Discord</p>
+                </a>
+            </div>
+            <div class="aboutf">
+                <h2>Resources</h2>
+                <p>Privacy Policy</p>
+                <p>Terms of Service</p>
+            </div>
+            <div class="aboutf">
+                <h2>Social</h2>
+                <a href="https://www.instagram.com/"><img class="img" src="https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338393_1280.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com/"><img class="img" src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png" alt="Facebook"></a>
+                <a href="https://x.com/"><img class="img" src="https://img.freepik.com/premium-photo/twitter-logo-icon-illustration-vector_895118-5895.jpg" alt="Twitter"></a>
+                <a href="https://www.youtube.com/"><img class="img" src="https://yt3.googleusercontent.com/ccPr80rfkOgsE0TMP8S8vEfP85gl12XzUGtySPFFYNMhxlQ62W7ijksmUIXv6fCBC1jBmoEqaA=s900-c-k-c0x00ffffff-no-rj" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html> 

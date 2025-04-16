@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Arcade Realm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/contact Us.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/home">Lobby</a></li>
+            <li><a href="/tournament">Tournaments</a></li>
+            <li><a href="/review">Review</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/demo">My Profile</a></li>
+            <li><a href="/contact">Contact US</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left-panel">
+            <h2>CONTACT US</h2>
+            <p>We'd love to hear from you!<br>Reach out for queries, collaborations,<br>or just to say hello.</p>
+            <div class="info">
+                <strong>Address:</strong><br>
+                Arcade Realm HQ,<br>
+                45 Gamer Street, Pixel City,<br>
+                Gameverse 90090<br><br>
+                <strong>Phone:</strong> +1 (555) 123-4567<br>
+                <strong>Email:</strong> <a href="mailto:contact@arcaderealm.gg" style="color:#fff; text-decoration: none;">contact@arcaderealm.gg</a>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019314545917!2d-122.42067958469112!3d37.774929779759584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6d24f1ed%3A0xe4b4b4cfc0e4f00b!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1641832820406!5m2!1sen!2sin" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h2>Send a Message</h2>
+            <form action="/contact" method="POST">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                <textarea name="message" class="form-control" rows="5" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="btn btn-contact w-100 mt-3">Send</button>
+            </form>
+            <% if (message) { %>
+                <div class="alert alert-<%= messageType %> mt-3" role="alert">
+                    <%= message %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html> 
