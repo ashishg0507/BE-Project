@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Reviewed Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/review1 (1).css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/home">Lobby</a></li>
+            <li><a href="/tournament">Tournaments</a></li>
+            <li><a href="/review">Review</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/demo">My Profile</a></li>
+            <li><a href="/contact">Contact US</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <h1 class="heading">TOP REVIEWED</h1>
+
+    <div class="reviews-grid">
+        <% games.forEach(game => { %>
+            <div class="review-container">
+                <div class="review-card">
+                    <div class="front">
+                        <img src="<%= game.image %>" alt="<%= game.title %>">
+                        <h2><%= game.title %></h2>
+                        <p>Genre: <%= game.genre %></p>
+                        <p>Mode(s): <%= game.modes %></p>
+                        <p>Rating: <%= game.rating %></p>
+                    </div>
+                    <div class="back">
+                        <p>"<%= game.review %>"</p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.review-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
