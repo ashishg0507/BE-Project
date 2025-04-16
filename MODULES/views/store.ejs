@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcade Realm Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/home">Lobby</a></li>
+            <li><a href="/tournament">Tournaments</a></li>
+            <li><a href="/review">Review</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/demo">My Profile</a></li>
+            <li><a href="/contact">Contact US</a></li>
+        </ul>
+    </nav>
+  <div class="store-container">
+    <div class="games-row">
+      <% storeData.forEach(game => { %>
+        <div class="game-box">
+          <img src="<%= game.imageUrl %>" alt="<%= game.name %>" />
+          <div class="game-details">
+            <div class="game-title"><%= game.name %></div>
+            <div class="game-genre">Genre: <%= game.genre %></div>
+            <div class="game-rating">Rating: <%= game.rating %>/5</div>
+            <div class="game-price">₹<%= game.price %></div>
+            <button class="buy-btn" data-game-name="<%= game.name %>" data-game-price="<%= game.price %>">Buy Now</button>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners to all "Buy Now" buttons
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    
+    buyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the game details from data attributes
+        const gameName = this.getAttribute('data-game-name');
+        const gamePrice = this.getAttribute('data-game-price');
+        
+        // Store the game details in sessionStorage
+        sessionStorage.setItem('selectedGame', gameName);
+        sessionStorage.setItem('gamePrice', gamePrice);
+        
+        // Redirect to the store checkout page
+        window.location.href = '/store-checkout';
+      });
+    });
+  });
+</script>
+</html> 

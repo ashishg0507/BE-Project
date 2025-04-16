@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/checkoutforStore.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+    </nav>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="billing-address">Billing Address:</label>
+            <input type="text" id="billing-address" name="billing-address" placeholder="Enter your billing address" required>
+
+            <label for="pincode">Pincode:</label>
+            <input type="number" id="pincode" name="pincode" placeholder="Enter your pincode" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" placeholder="Enter your country" required>
+
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <p>Game: <span id="selected-game">Not selected</span></p>
+                <p>Price: <span id="game-price">₹0</span></p>
+            </div>
+
+            <div class="payment-section">
+                <label>Payment Method:</label>
+                <div class="payment-options">
+                    <input type="radio" name="payment-method" id="netbanking" value="NetBanking" required>NetBanking<br>
+                    <input type="radio" name="payment-method" id="credit-debit" value="Credit/Debit Card" required>Credit/Debit Card<br>
+                    <input type="radio" name="payment-method" id="upi" value="UPI" required>UPI
+                </div>
+
+                <div id="payment-details"></div>
+            </div>
+
+            <button type="button" onclick="processPayment()">Pay Now</button>
+        </form>
+
+        <div class="image-section">
+            <img src="https://m.economictimes.com/thumb/msid-107312198,width-1600,height-900,resizemode-4,imgsize-6574/paytm-etonline.jpg" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaYFc0LxnBekf6fVV7eehPXk7qLTBPLM922w&s" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbOsJUPXMDaZXyJA2PxFYv2gEVkGofB0fsyQ&s" alt="Image 3">
+        </div>
+    </div>
+
+    <div id="processingModal" class="modal">
+        <div class="modal-content">
+            <p>Processing payment...</p>
+        </div>
+    </div>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Payment Successful!</p>
+        </div>
+    </div>
+
+    <script>
+        const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+        const paymentDetails = document.getElementById('payment-details');
+    
+        paymentOptions.forEach(option => {
+            option.addEventListener('change', function () {
+                if (this.value === 'NetBanking') {
+                    paymentDetails.innerHTML = `
+                        <label for="bank">Select Bank:</label>
+                        <select id="bank" name="bank" required>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="axis">Axis Bank</option>
+                            <option value="yes">YES Bank</option>
+                            <option value="kotak">Kotak Mahindra Bank</option>
+                        </select>
+                        <label for="account-number">Account Number:</label>
+                        <input type="text" id="account-number" name="account-number" placeholder="Enter your account number" required>
+                        <label for="ifsc">IFSC Code:</label>
+                        <input type="text" id="ifsc" name="ifsc" placeholder="Enter IFSC code" required>
+                    `;
+                    paymentDetails.style.display = 'block';
+                } else if (this.value === 'Credit/Debit Card') {
+                    paymentDetails.innerHTML = `
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required>
+                        <label for="expiry-date">Expiry Date:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                        <label for="cvv">CVV:</label>
+                        <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" required>
+                    `;
+                    paymentDetails.style.display = 'block';
+                } else if (this.value === 'UPI') {
+                    paymentDetails.innerHTML = `
+                        <label for="upi-id">UPI ID:</label>
+                        <select id="upi-id" name="upi-id" required>
+                            <option value="googlepay">Google Pay</option>
+                            <option value="phonepe">PhonePe</option>
+                            <option value="paytm">Paytm</option>
+                            <option value="bhim">BHIM UPI</option>
+                        </select>
+                        <label for="account-holder">Name on Account:</label>
+                        <input type="text" id="account-holder" name="account-holder" placeholder="Enter your name" required>
+                        <label for="upi-bank">Bank Name:</label>
+                        <input type="text" id="upi-bank" name="upi-bank" placeholder="Enter your bank name" required>
+                    `;
+                    paymentDetails.style.display = 'block';
+                }
+            });
+        });
+    
+        function processPayment() {
+            document.getElementById("processingModal").style.display = "block";
+    
+            setTimeout(() => {
+                document.getElementById("processingModal").style.display = "none";
+                document.getElementById("successModal").style.display = "block";
+    
+                setTimeout(() => {
+                    window.location.href = "/store"; 
+                }, 2000); 
+            }, 3000);
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the selected game and price from sessionStorage
+            const selectedGame = sessionStorage.getItem('selectedGame') || 'Not selected';
+            const gamePrice = sessionStorage.getItem('gamePrice') || '0';
+            document.getElementById("selected-game").innerText = selectedGame;
+            document.getElementById("game-price").innerText = '₹' + gamePrice;
+        });
+    </script>
+</body>
+</html> 
